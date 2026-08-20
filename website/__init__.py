@@ -5,7 +5,9 @@ def create_app():
     app.config['SECRET_KEY'] = 'your_secret_key'  # Replace with your own secret key
 
     # Import and register blueprints here
-    from .views import main_blueprint
-    app.register_blueprint(main_blueprint)
+    from .views import views
+    from .auth import auth  
+    app.register_blueprint(views, url_prefix='/')
+    app.register_blueprint(auth, url_prefix='/')
 
     return app
