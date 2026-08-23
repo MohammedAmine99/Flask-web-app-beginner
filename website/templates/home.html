@@ -3,8 +3,18 @@
 {%- block title %}changed{% endblock %}
 
 {%- block content %}
-  <div class="container">
-    <h1>Welcome to My Website</h1>
-    <p>This is the home page.</p>
-  </div>
+<h1 align="center"> Notes</h1>
+<ul class="list-group list-group-flush" id="notes">
+   {% for note in user.notes %}
+     <li class="list-group-item">{{ note.data }}</li>
+   {% endfor %}
+</ul>
+ <form method="post">
+    <textarea name="note" id="note" class="form-control"></textarea>
+    <br />
+    <div align="center">
+     <button type="submit" class="btn btn-primary">Add Note</button>
+    </div>
+    
+  </form>
 {%- endblock %}
